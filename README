@@ -1,0 +1,46 @@
+ENTITYCONV
+
+  entityconv is a program that converts special HTML characters to
+  entities, and vice versa.
+
+USAGE
+
+  The program reads from file or standard input (stdin), so that you
+  can read in a stream from shell:
+
+	entityconv -
+	<p>
+	&lt;p&gt;
+
+  Or pipe the contents of a file:
+
+	cat paragraph.html | entityconv
+	&lt;p&gt;
+
+  You can also operate directly on a file:
+
+	entityconv paragraph.html
+	&lt;p&gt;
+
+  It takes a single argument -r, which reverses the escape process
+  to unescape instead. This will allow you to pass convert entities
+  into HTML.
+
+LIBRARY USAGE
+
+  The functionality of the program is also provided as a Go library.
+  You import it from the following canonical location:
+
+	https://github.com/andreastt/entities
+
+  To escape some HTML:
+
+	es := entities.Escape("<p>")
+	fmt.Printf("%s", es)
+	# produces "&lt;p&gt;"
+
+  To unescape a string with HTML entites:
+
+	us := entities.Unescape("&lt;p&gt;")
+	fmt.Printf("%s", us)
+	# produces "<p>"
