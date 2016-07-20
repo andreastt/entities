@@ -8,9 +8,10 @@ USAGE
   The program reads from file or standard input (stdin), so that you
   can read in a stream from shell:
 
-	entityconv -
-	<p>
-	&lt;p&gt;
+	./entityconv <<EOF
+	<foo>
+	EOF
+	&lt;foo&gt;
 
   Or pipe the contents of a file:
 
